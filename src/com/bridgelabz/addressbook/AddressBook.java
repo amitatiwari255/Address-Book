@@ -1,8 +1,9 @@
 package com.bridgelabz.addressbook;
+import java.util.ArrayList;
 import java.util.Scanner;
-public class AddressBook {
+public class AddressBook extends Contact {
     Scanner scan = new Scanner(System.in);
-    public void createContact() {
+    public Contact addDetails(ArrayList arrayList) {
         Contact contact = new Contact();
         System.out.println("enter first name");
         String firstName = scan.next();
@@ -28,6 +29,28 @@ public class AddressBook {
         System.out.println("enter email id");
         String email = scan.next();
         contact.setEmail(email);
-        System.out.println(contact);
+        arrayList.add(contact);
+        return contact;
+    }
+    public void multipleContact(ArrayList arrayList){
+        AddressBook addressBook = new AddressBook();
+        String charcter;
+        do {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Enter choice 1.to add Contact ");
+            int choice;
+            choice = scan.nextInt();
+            switch (choice) {
+
+                case 1:
+                    addressBook.addDetails(arrayList);
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+            }
+            System.out.println("DO YOU WANT TO ADD MORE CONTACT (PRESS y to continue)");
+            charcter = scan.next();
+        } while (charcter.equals("y") || charcter.equals("Y"));
+        System.out.println(arrayList);
     }
 }
