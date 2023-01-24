@@ -113,5 +113,25 @@ public class AddressBook extends Contact {
 
             }
         }
+    void deleteContact() {
+
+        Contact contact = new Contact();
+
+        System.out.println("Enter the Contact name which you want to delete  ");
+        String name = scan.next();
+
+        for (int i = 0; i < al1.size(); i++) {
+            if (al1.get(i).getFirstname().equals(name)) {
+                // al1.remove(contact);
+                al1.remove(i);
+            }
+        }
+        System.out.println("Address book after deleting contact ");
+
+        Iterator itr1 = al1.iterator();
+        while (itr1.hasNext()) {
+            System.out.println(itr1.next());
+        }
+    }
     }
 
